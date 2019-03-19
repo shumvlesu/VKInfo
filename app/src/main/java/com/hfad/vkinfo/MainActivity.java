@@ -7,9 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.net.URL;
 
 import static com.hfad.vkinfo.utils.NetworkUtils.generateURL;
+import static com.hfad.vkinfo.utils.NetworkUtils.getResponseFromURL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 URL generatedURL = generateURL(searchField.getText().toString());
-                result.setText(generatedURL.toString());
+                String responce = null;
+                try {
+                    responce = getResponseFromURL(generatedURL);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                //result.setText(generatedURL.toString());
+                result.setText(responce);
             }
         };
 
