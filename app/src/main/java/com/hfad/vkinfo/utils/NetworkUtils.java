@@ -2,8 +2,12 @@ package com.hfad.vkinfo.utils;
 
 import android.net.Uri;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
+
 
 public class NetworkUtils {
 //https://api.vk.com/method/users.get?user_ids=1982860&v=5.89&access_token=bbd39378bbd39378bbd3937876bbbac99cbbbd3bbd39378e75c194c563cd558732dc92c
@@ -29,6 +33,13 @@ public class NetworkUtils {
             e.printStackTrace();
         }
         return url;
+
+    }
+
+
+    public static String getResponseFromURL(URL url) throws IOException {
+        HttpURLConnection urlConnection = (URLConnection) url.openConnection();
+
 
     }
 
