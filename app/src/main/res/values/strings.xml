@@ -3,4 +3,5 @@
     <string name="id">Введите id вконтакте.</string>
     <string name="search">Искать</string>
     <string name="result">Результат будет отображен здесь.</string>
+    <string name="error_message">Внимание, произошла ошибка!</string>
 </resources>

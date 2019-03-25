@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 
@@ -55,6 +56,8 @@ public class NetworkUtils {
             } else {
                 return null;
             }
+        } catch (UnknownHostException e) {
+            return null;
         } finally {
             urlConnection.disconnect();
         }
