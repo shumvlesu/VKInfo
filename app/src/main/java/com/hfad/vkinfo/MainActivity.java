@@ -25,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView errorMessage;
     private ProgressBar loadnigIndicator;
 
+    //Показать результат в случае удачи
     private void showResultTextVew() {
         result.setVisibility(View.VISIBLE);
         errorMessage.setVisibility(View.INVISIBLE);
     }
 
+    //Показать результат в случае получения ошибки
     private void showErrorTextView() {
         result.setVisibility(View.INVISIBLE);
         errorMessage.setVisibility(View.VISIBLE);
