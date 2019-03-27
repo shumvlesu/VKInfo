@@ -82,19 +82,30 @@ public class MainActivity extends AppCompatActivity {
                     //response это массив значений , но у меня в массиве всего один элемент.
                     //Поэтому я объявлю переменную jsonArray с типом массива json и по ключу "response" получу его
                     JSONArray jsonArray = jsonResponse.getJSONArray("response");
+
+                    String resultingString = "";
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        //Информация о пользователе можно обратившись к  i индексу массива.
+                        JSONObject userInfo = jsonArray.getJSONObject(i);
+                        firstName = userInfo.getString("first_name");
+                        lastName = userInfo.getString("last_name");
+
+                        //Вывожу результат
+                        resultingString += "Имя: " + firstName + "\n" + "Фамилия: " + lastName + "\n\n";
+
+                    }
+                    result.setText(resultingString);
                     //Информация о пользователе можно обратившись к  0 индексу массива. Хапись то одна.
-                    JSONObject userInfo = jsonArray.getJSONObject(0);
+                    // JSONObject userInfo = jsonArray.getJSONObject(0);
+
                     //Ну а теперь получая по ключам json переменные и преобразуя их в строку , кидаю их в переменные строкового типа.
-                    firstName = userInfo.getString("first_name");
-                    lastName = userInfo.getString("last_name");
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                //Вывожу результат
-                String resultingString = "Имя: " + firstName + "\n" + "Фамилия: " + lastName;
-                result.setText(resultingString);
                 showResultTextVew();
             } else {
                 showErrorTextView();
